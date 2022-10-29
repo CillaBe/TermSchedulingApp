@@ -68,4 +68,108 @@ public class Repository {
             e.printStackTrace();
         }
     }
+
+    public List<Assessment>getAllAssessments(){
+        databaseExecutor.execute(()->{
+            mAllAssessments=mAssessmentDAO.getAllAssessments();
+        });
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAllAssessments;
+    }
+
+    public List<Course>getAllCourses(){
+        databaseExecutor.execute(()->{
+            mAllCourses=mCourseDAO.getAllCourses();
+        });
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAllCourses;
+    }
+
+    public List<Term>getAllTerms(){
+        databaseExecutor.execute(()->{
+            mAllTerms=mTermDAO.getAllTerms();
+        });
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAllTerms;
+    }
+
+    public void update(Assessment assessment){
+        databaseExecutor.execute(()->{
+            mAssessmentDAO.update(assessment);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void update(Course course){
+        databaseExecutor.execute(()->{
+            mCourseDAO.update(course);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void update(Term term){
+        databaseExecutor.execute(()->{
+            mTermDAO.update(term);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(Assessment assessment){
+        databaseExecutor.execute(()->{
+            mAssessmentDAO.delete(assessment);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(Course course){
+        databaseExecutor.execute(()->{
+            mCourseDAO.delete(course);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void delete(Term term){
+        databaseExecutor.execute(()->{
+            mTermDAO.delete(term);
+        });
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
