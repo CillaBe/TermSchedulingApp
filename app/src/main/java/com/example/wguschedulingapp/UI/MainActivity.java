@@ -26,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Repository repo = new Repository(getApplication());
         Term FallTerm = new Term(1,"Fall Term","09/30/2022","12/15/2022");
         repo.insert(FallTerm);
-        Term UpdateFallTerm = new Term(1,"UpdatedFall","09/15/2020","12/15/2022");
-        repo.update(UpdateFallTerm);
+
 
     }
 
