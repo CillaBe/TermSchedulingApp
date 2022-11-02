@@ -9,8 +9,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="25dp"
-        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="25dp"
         android:text="TextView"
         app:layout_constraintHorizontal_bias="10"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +23,11 @@
         android:id="@+id/TermStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="25dp"
-        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="25dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@id/TermEnd"
-        app:layout_constraintHorizontal_bias="10"
+        app:layout_constraintHorizontal_bias="5"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,10 +35,32 @@
         android:id="@+id/TermEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="25dp"
-        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="25dp"
         android:text="TextView"
-        app:layout_constraintHorizontal_bias="10"
+        app:layout_constraintHorizontal_bias="5"
         app:layout_constraintStart_toEndOf="@+id/TermStart"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/StartofTermWords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="25dp"
+        android:text="TextView"
+        app:layout_constraintHorizontal_bias="5"
+        app:layout_constraintStart_toEndOf="@+id/TermEnd"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/EndofTermWords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="25dp"
+        android:text="TextView"
+        app:layout_constraintHorizontal_bias="5"
+        app:layout_constraintStart_toEndOf="@+id/StartofTermWords"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
