@@ -10,12 +10,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="1dp"
+        android:layout_marginTop="25dp"
         android:text="TextView"
+        app:fontFamily="@font/alfa_slab_one"
         app:layout_constraintEnd_toStartOf="@id/StartofTermWords"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/StartofTermWords"
@@ -23,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="1dp"
         android:layout_marginTop="25dp"
-        android:text="Start of Term"
-        app:fontFamily="@font/aleo_bold"
+        android:text="Start"
+        app:fontFamily="@font/alegreya_sc_bold_italic"
         app:layout_constraintEnd_toStartOf="@id/TermStart"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -37,10 +39,10 @@
         android:layout_margin="1dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="2dp"
-        app:layout_constraintHorizontal_bias="0.5"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/EndofTermWords"
 
         app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +54,6 @@
         android:layout_margin="1dp"
         android:layout_marginTop="25dp"
         android:text="TextView"
-        app:fontFamily="@font/aleo_bold"
         app:layout_constraintEnd_toStartOf="@id/EndofTermWords"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/StartofTermWords"
@@ -65,15 +66,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="1dp"
         android:layout_marginTop="25dp"
-        android:text="End of Term"
-        app:fontFamily="@font/aleo_bold"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:text="End"
+        app:fontFamily="@font/alegreya_sc_bold_italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@id/TermEnd"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/TermStart"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
