@@ -31,11 +31,12 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     final Term current= mTerms.get(position);
-                    Intent intent = new Intent(context,TermsList.class);
+                    Intent intent = new Intent(context,ViewTerm.class);
                     intent.putExtra("id",current.getTermID());
                     intent.putExtra("name",current.getTermName());
                     intent.putExtra("start",current.getTermStart());
                     intent.putExtra("end",current.getTermEnd());
+                    context.startActivity(intent);
 
 
                 }

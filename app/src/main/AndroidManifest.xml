@@ -11,21 +11,28 @@
         android:theme="@style/Theme.WGUSchedulingApp" >
         <activity
             android:name=".UI.AddCourse"
+            android:label = "Add Course"
             android:exported="false" />
         <activity
             android:name=".UI.AddAssessment"
+            android:label = "Add Assessment"
             android:exported="false" />
         <activity
             android:name=".UI.ViewAssessment"
+            android:label = "Course Detail"
             android:exported="false" />
         <activity
             android:name=".UI.CourseList"
+            android:label = "Courses"
             android:exported="false" />
         <activity
             android:name=".UI.AssessmentsList"
+            android:label = "Assessments"
             android:exported="false" />
         <activity
             android:name=".UI.ViewTerm"
+            android:label = "Term Detail"
+            android:parentActivityName=".UI.TermsList"
             android:exported="false" />
         <activity
             android:name=".UI.AddTerm"
