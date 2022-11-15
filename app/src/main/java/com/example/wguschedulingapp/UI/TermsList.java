@@ -46,7 +46,7 @@ public class TermsList extends AppCompatActivity {
         }
 
     public void goToAddTerm(View view) {
-        Intent intent = new Intent(TermsList.this,AddTerm.class);
+        Intent intent = new Intent(TermsList.this,ViewTerm.class);
         startActivity(intent);
     }
 }
