@@ -4,14 +4,20 @@ import static com.example.wguschedulingapp.R.id.TermEnd;
 import static com.example.wguschedulingapp.R.id.fade;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.wguschedulingapp.Database.Repository;
+import com.example.wguschedulingapp.Entity.Course;
 import com.example.wguschedulingapp.Entity.Term;
 import com.example.wguschedulingapp.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewTerm extends AppCompatActivity {
 
@@ -28,7 +34,12 @@ public class ViewTerm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_view_term);
+
+        final CourseAdapter adapter = new CourseAdapter(this);
+
         repository = new Repository(getApplication());
 
         TermStart = findViewById(R.id.editTermStart);
@@ -43,6 +54,20 @@ public class ViewTerm extends AppCompatActivity {
         TermName.setText(name);
         TermStart.setText(start);
         TermEnd.setText(end);
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Course> CoursesByTerm = new ArrayList<>();
+        for (Course course : repository.getAllCourses()){
+            if (course.getTermID() == termID) {
+                CoursesByTerm.add(course);
+            }
+        }
+        adapter.setCourse(CoursesByTerm);
+
+
+
 
 
 
