@@ -2,15 +2,78 @@ package com.example.wguschedulingapp.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 
+import com.example.wguschedulingapp.Database.Repository;
 import com.example.wguschedulingapp.R;
 
 public class ViewCourse extends AppCompatActivity {
+    EditText EditCourseID;
+    EditText EditTermID;
+    EditText EditCourseTitle;
+    EditText EditCourseStart;
+    EditText EditCourseEnd;
+    EditText EditCourseStatus;
+    EditText EditInstructorName;
+    EditText EditInstructorEmail;
+    EditText EditInstructorPhone;
+    EditText EditNotes;
+
+    int CourseId;
+    int TermId;
+    String CourseTitle;
+    String CourseStart;
+    String CourseEnd;
+    String CourseStatus;
+    String InstructorName;
+    String InstructorEmail;
+    String InstructorPhone;
+    String Notes;
+
+    Repository repo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_course);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        repo = new Repository(getApplication());
+        EditCourseID = findViewById(R.id.editCourseID);
+        EditTermID = findViewById(R.id.editTermID);
+        EditCourseTitle = findViewById(R.id.editCourseName);
+        EditCourseStart = findViewById(R.id.editCourseStart);
+        EditCourseEnd = findViewById(R.id.editCourseEnd);
+        EditCourseStatus = findViewById(R.id.editCourseStatus);
+        EditInstructorName = findViewById(R.id.editInstructorName);
+        EditInstructorPhone = findViewById(R.id.editInstructorPhone);
+        EditNotes = findViewById(R.id.editOptionalNotes);
+        EditInstructorEmail = findViewById(R.id.editInstructorEmail);
+
+        CourseId = getIntent().getIntExtra("CourseID",-1);
+        TermId = getIntent().getIntExtra("TermID",-1);
+        CourseTitle = getIntent().getStringExtra("CourseTitle");
+        CourseStart = getIntent().getStringExtra("CourseStart");
+        CourseEnd = getIntent().getStringExtra("CourseEnd");
+        CourseStatus = getIntent().getStringExtra("CourseStatus");
+        InstructorName = getIntent().getStringExtra("CourseInstructorName");
+        InstructorEmail = getIntent().getStringExtra("InstructorEmail");
+        InstructorPhone = getIntent().getStringExtra("InstructorPhone");
+        Notes = getIntent().getStringExtra("CourseNote");
+
+        EditCourseID.setText(CourseId);
+        EditTermID.setText(TermId);
+        EditCourseTitle.setText(CourseTitle);
+        EditCourseStart.setText(CourseStart);
+        EditCourseEnd.setText(CourseEnd);
+        EditCourseStatus.setText(CourseStatus);
+        EditInstructorName.setText(InstructorName);
+        EditInstructorPhone.setText(InstructorPhone);
+        EditInstructorEmail.setText(InstructorEmail);
+        EditNotes.setText(Notes);
     }
 }
