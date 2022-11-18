@@ -42,7 +42,7 @@ public class ViewCourse extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        repo = new Repository(getApplication());
+        /**repo = new Repository(getApplication());
         EditCourseID = findViewById(R.id.editCourseID);
         EditTermID = findViewById(R.id.editTermID);
         EditCourseTitle = findViewById(R.id.editCourseName);
@@ -74,6 +74,6 @@ public class ViewCourse extends AppCompatActivity {
         EditInstructorName.setText(InstructorName);
         EditInstructorPhone.setText(InstructorPhone);
         EditInstructorEmail.setText(InstructorEmail);
-        EditNotes.setText(Notes);
+        EditNotes.setText(Notes);*/
     }
 }

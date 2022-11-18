@@ -35,6 +35,11 @@
             android:parentActivityName=".UI.TermsList"
             android:exported="false" />
         <activity
+            android:name=".UI.ViewCourse"
+            android:label = "View Course"
+            android:parentActivityName=".UI.TermsList"
+            android:exported="false" />
+        <activity
             android:name=".UI.AddTerm"
             android:label="Add Term"
             android:parentActivityName=".UI.TermsList"
