@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -40,8 +41,8 @@ public class ViewTerm extends AppCompatActivity {
 
         final CourseAdapter adapter = new CourseAdapter(this);
 
-        repository = new Repository(getApplication());
 
+        repository = new Repository(getApplication());
         TermStart = findViewById(R.id.editTermStart);
         TermEnd =findViewById(R.id.editTermEnd);
         TermName =findViewById(R.id.editTermName);
@@ -63,8 +64,9 @@ public class ViewTerm extends AppCompatActivity {
             if (course.getTermID() == termID) {
                 CoursesByTerm.add(course);
             }
+            adapter.setCourse(CoursesByTerm);
+
         }
-        adapter.setCourse(CoursesByTerm);
 
 
 
@@ -83,5 +85,9 @@ public class ViewTerm extends AppCompatActivity {
             term = new Term(termID, TermName.getText().toString(),TermStart.getText().toString(),TermEnd.getText().toString());
             repository.update(term);
         }
+    }
+    public void goToCourseDetails(View view){
+        Intent intent = new Intent(ViewTerm.this,ViewCourse.class);
+        startActivity(intent);
     }
     }

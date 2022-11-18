@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         repo.insert(FallTerm23);
         Course EnglishCourse = new Course(1,1,"English 101","09/1/2022","12/15/2022","In-Progress","Bob Jones","585-900-09333","bob@aol.com","Able to be CLEPPED");
         repo.insert(EnglishCourse);
+        Course HistoryCourse = new Course(2,1,"History 101","09/1/2022","12/15/2022","In-Progress","Sarah Jones","585-900-09336","sarah@aol.com","Able to be CLEPPED");
+        repo.insert(HistoryCourse);
 
 
 

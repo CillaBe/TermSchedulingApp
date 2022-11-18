@@ -8,8 +8,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="630dp"
-        android:layout_height="247dp"
+        android:layout_width="358dp"
+        android:layout_height="314dp"
         android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -21,26 +21,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="515dp"
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Term Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <EditText
+                android:id="@+id/editTermName"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Fall 2020"
+                android:minHeight="48dp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:layout_editor_absoluteX="235dp"
+                tools:layout_editor_absoluteY="30dp"></EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Term Name"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
-                <EditText
-                    android:id="@+id/editTermName"
-                    android:layout_width="307dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minHeight="48dp"
-                    android:hint="Fall 2020"></EditText>
 
                 <Space
                     android:layout_width="wrap_content"
@@ -48,6 +51,11 @@
                     android:layout_weight="1" />
 
             </LinearLayout>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -79,41 +87,65 @@
                 android:hint="12/01/2022"
                 android:minHeight="48dp"></EditText>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="19dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:text="Courses" />
+
 
         </LinearLayout>
     </ScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="726dp"
-        android:layout_height="295dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="350dp"
+        android:layout_height="229dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="263dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/addCourseButton"
+        android:layout_width="129dp"
+        android:layout_height="53dp"
         android:layout_weight="1"
+        android:onClick="goToCourseDetails"
         android:text="Add Course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.593" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="138dp"
-        android:layout_marginEnd="76dp"
+        android:layout_width="95dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="16dp"
         android:onClick="saveTerm"
-        android:text="Save"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Save Term"
 
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addCourseButton"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.404" />
+
+    <Button
+        android:id="@+id/deleteTermButton"
+        android:layout_width="123dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="20dp"
+        android:text="Delete Term"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="145dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
