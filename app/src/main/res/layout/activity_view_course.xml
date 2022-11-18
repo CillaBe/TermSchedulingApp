@@ -9,8 +9,8 @@
 
     <ScrollView
         android:id="@+id/scrollViewCourse"
-        android:layout_width="330dp"
-        android:layout_height="341dp"
+        android:layout_width="367dp"
+        android:layout_height="401dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +78,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="12/01/2022"
+                android:hint="3"
+                android:minWidth="48dp"
                 android:minHeight="48dp"></EditText>
 
             <TextView
@@ -92,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="12/01/2022"
+                android:hint="4"
                 android:minHeight="48dp"></EditText>
 
             <TextView
@@ -158,13 +159,6 @@
                 android:layout_weight="1"
                 android:hint="Completed"
                 android:minHeight="48dp"></EditText>
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Assessments" />
 
 
         </LinearLayout>

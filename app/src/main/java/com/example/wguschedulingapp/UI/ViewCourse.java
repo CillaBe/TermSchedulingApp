@@ -42,7 +42,7 @@ public class ViewCourse extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        /**repo = new Repository(getApplication());
+        repo = new Repository(getApplication());
         EditCourseID = findViewById(R.id.editCourseID);
         EditTermID = findViewById(R.id.editTermID);
         EditCourseTitle = findViewById(R.id.editCourseName);
@@ -54,7 +54,7 @@ public class ViewCourse extends AppCompatActivity {
         EditNotes = findViewById(R.id.editOptionalNotes);
         EditInstructorEmail = findViewById(R.id.editInstructorEmail);
 
-        CourseId = getIntent().getIntExtra("CourseID",-1);
+        CourseId = getIntent().getIntExtra("CourseId",-1);
         TermId = getIntent().getIntExtra("TermID",-1);
         CourseTitle = getIntent().getStringExtra("CourseTitle");
         CourseStart = getIntent().getStringExtra("CourseStart");
@@ -65,8 +65,8 @@ public class ViewCourse extends AppCompatActivity {
         InstructorPhone = getIntent().getStringExtra("InstructorPhone");
         Notes = getIntent().getStringExtra("CourseNote");
 
-        EditCourseID.setText(CourseId);
-        EditTermID.setText(TermId);
+        EditCourseID.setText(String.valueOf(CourseId));
+        EditTermID.setText(String.valueOf(TermId));
         EditCourseTitle.setText(CourseTitle);
         EditCourseStart.setText(CourseStart);
         EditCourseEnd.setText(CourseEnd);
@@ -74,6 +74,6 @@ public class ViewCourse extends AppCompatActivity {
         EditInstructorName.setText(InstructorName);
         EditInstructorPhone.setText(InstructorPhone);
         EditInstructorEmail.setText(InstructorEmail);
-        EditNotes.setText(Notes);*/
+        EditNotes.setText(Notes);
     }
 }
