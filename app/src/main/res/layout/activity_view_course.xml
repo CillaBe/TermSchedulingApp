@@ -86,14 +86,14 @@
                 android:id="@+id/tTermID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Term ID" />
+                android:text="TermID" />
 
             <EditText
                 android:id="@+id/editTermID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="4"
+                android:hint="3"
                 android:minWidth="48dp"
                 android:minHeight="48dp"></EditText>
 
@@ -212,7 +212,7 @@
         android:id="@+id/SaveCourseButton"
         android:layout_width="117dp"
         android:layout_height="61dp"
-
+        android:onClick="saveCourse"
         android:layout_marginTop="27dp"
         android:text="Save Course"
         app:layout_constraintBottom_toBottomOf="parent"

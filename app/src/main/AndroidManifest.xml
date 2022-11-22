@@ -37,7 +37,7 @@
         <activity
             android:name=".UI.ViewCourse"
             android:label = "View Course"
-            android:parentActivityName=".UI.ViewTerm"
+            android:parentActivityName=".UI.TermsList"
             android:exported="false" />
         <activity
             android:name=".UI.AddTerm"

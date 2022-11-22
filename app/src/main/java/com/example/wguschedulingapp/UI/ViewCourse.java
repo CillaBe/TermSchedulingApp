@@ -6,11 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import com.example.wguschedulingapp.Database.Repository;
 import com.example.wguschedulingapp.Entity.Assessment;
 import com.example.wguschedulingapp.Entity.Course;
+import com.example.wguschedulingapp.Entity.Term;
 import com.example.wguschedulingapp.R;
 
 import java.util.ArrayList;
@@ -93,6 +95,27 @@ public class ViewCourse extends AppCompatActivity {
             }
             adapter.setAssessments(AssessmentsByTerm);
 
+        }
+    }
+    public void saveCourse(View view){
+        Course course;
+        if (CourseId == -1) {
+            int newID = (int)Math.random();
+
+            for(Course c : repo.getAllCourses()){
+                if(c.getCourseID()== newID){
+                    newID = (int)Math.random();
+                }
+            }
+            course = new Course(newID, TermId,EditCourseTitle.getText().toString(),EditCourseStart.getText().toString(),EditCourseEnd.getText().toString(),EditCourseStatus.getText().toString(),EditInstructorName.getText().toString(),EditInstructorPhone.getText().toString(),EditInstructorEmail.getText().toString(),EditNotes.getText().toString());
+            repo.insert(course);
+            Intent newIntent = new Intent(ViewCourse.this,TermsList.class);
+            startActivity(newIntent);
+        } else {
+            course = new Course(CourseId,  TermId,EditCourseTitle.getText().toString(),EditCourseStart.getText().toString(),EditCourseEnd.getText().toString(),EditCourseStatus.getText().toString(),EditInstructorName.getText().toString(),EditInstructorPhone.getText().toString(),EditInstructorEmail.getText().toString(),EditNotes.getText().toString());
+            repo.update(course);
+            Intent newIntent = new Intent(ViewCourse.this,TermsList.class);
+            startActivity(newIntent);
         }
     }
 }
