@@ -19,6 +19,7 @@ import com.example.wguschedulingapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ViewTerm extends AppCompatActivity {
 
@@ -31,6 +32,7 @@ public class ViewTerm extends AppCompatActivity {
     String end;
     int termID;
     Repository repository;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,12 +80,22 @@ public class ViewTerm extends AppCompatActivity {
     public void saveTerm(View view){
         Term term;
         if (termID == -1) {
-            int newID = repository.getAllTerms().get(repository.getAllTerms().size() - 1).getTermID() + 1;
+            int newID = (int)Math.random();
+            List<Term> allTerms = new ArrayList<>();
+            for(Term t : repository.getAllTerms()){
+                if(t.getTermID()== newID){
+                    newID = (int)Math.random();
+                }
+            }
             term = new Term(newID, TermName.getText().toString(),TermStart.getText().toString(),TermEnd.getText().toString());
             repository.insert(term);
+            Intent newIntent = new Intent(ViewTerm.this,TermsList.class);
+            startActivity(newIntent);
         } else {
             term = new Term(termID, TermName.getText().toString(),TermStart.getText().toString(),TermEnd.getText().toString());
             repository.update(term);
+            Intent newIntent = new Intent(ViewTerm.this,TermsList.class);
+            startActivity(newIntent);
         }
     }
     public void goToCourseDetails(View view){

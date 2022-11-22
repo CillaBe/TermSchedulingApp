@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         Repository repo = new Repository(getApplication());
-        Term FallTerm = new Term(1,"Fall Term","09/30/2022","12/15/2022");
+        /**Term FallTerm = new Term(1,"Fall Term","09/30/2022","12/15/2022");
         repo.insert(FallTerm);
         Term UpdatedTerm = new Term(1,"Fall 2023","09/30/2022","12/15/2022");
         repo.update(UpdatedTerm);
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         Assessment HistoryAssessment = new Assessment(2,2,"Performance Assessment","History Quiz","11/20/2022","11,25,2022");
         repo.insert(HistoryAssessment);
 
-
+ */
 
     }
 
