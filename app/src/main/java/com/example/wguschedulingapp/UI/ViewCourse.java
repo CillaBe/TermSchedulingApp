@@ -1,13 +1,20 @@
 package com.example.wguschedulingapp.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
 import com.example.wguschedulingapp.Database.Repository;
+import com.example.wguschedulingapp.Entity.Assessment;
+import com.example.wguschedulingapp.Entity.Course;
 import com.example.wguschedulingapp.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewCourse extends AppCompatActivity {
     EditText EditCourseID;
@@ -41,7 +48,7 @@ public class ViewCourse extends AppCompatActivity {
         setContentView(R.layout.activity_view_course);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        final AssessmentAdapter adapter = new AssessmentAdapter(this);
         repo = new Repository(getApplication());
         EditCourseID = findViewById(R.id.editCourseID);
         EditTermID = findViewById(R.id.editTermID);
@@ -75,5 +82,17 @@ public class ViewCourse extends AppCompatActivity {
         EditInstructorPhone.setText(InstructorPhone);
         EditInstructorEmail.setText(InstructorEmail);
         EditNotes.setText(Notes);
+
+        RecyclerView recyclerView = findViewById(R.id.AssessmentRecyclerView);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Assessment> AssessmentsByTerm = new ArrayList<>();
+        for (Assessment assessment : repo.getAllAssessments()){
+            if (assessment.getCourseID() == CourseId) {
+                AssessmentsByTerm.add(assessment);
+            }
+            adapter.setAssessments(AssessmentsByTerm);
+
+        }
     }
 }

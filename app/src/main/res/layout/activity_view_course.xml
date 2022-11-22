@@ -9,8 +9,8 @@
 
     <ScrollView
         android:id="@+id/scrollViewCourse"
-        android:layout_width="367dp"
-        android:layout_height="401dp"
+        android:layout_width="379dp"
+        android:layout_height="327dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="4"
+                android:minWidth="48dp"
                 android:minHeight="48dp"></EditText>
 
             <TextView
@@ -139,6 +140,21 @@
                 android:minHeight="48dp"></EditText>
 
             <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Course Status" />
+
+            <EditText
+                android:id="@+id/editCourseStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Completed"
+                android:minHeight="48dp"></EditText>
+
+            <TextView
                 android:id="@+id/OptionalNotes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,16 +168,69 @@
                 android:hint="3 credit hours"
                 android:minHeight="48dp"></EditText>
 
-            <EditText
-                android:id="@+id/editCourseStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Completed"
-                android:minHeight="48dp"></EditText>
-
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assessments"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toTopOf="@+id/AssessmentRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollViewCourse"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/AssessmentRecyclerView"
+        android:scrollbars="vertical"
+        android:layout_width="383dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollViewCourse" />
+
+    <Button
+        android:id="@+id/addAssessmentButton"
+        android:layout_width="137dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_weight="1"
+        android:text="Add Assessment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView" />
+
+    <Button
+        android:id="@+id/SaveCourseButton"
+        android:layout_width="117dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="27dp"
+
+        android:layout_marginEnd="16dp"
+        android:text="Save Course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/deleteCourseButton"
+        android:layout_width="106dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="24dp"
+        android:text="Delete Course"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/SaveCourseButton"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toEndOf="@+id/addAssessmentButton"
+        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView"
+        app:layout_constraintVertical_bias="0.454" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

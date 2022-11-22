@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
         repo.insert(EnglishCourse);
         Course HistoryCourse = new Course(2,1,"History 101","09/1/2022","12/15/2022","In-Progress","Sarah Jones","585-900-09336","sarah@aol.com","Able to be CLEPPED");
         repo.insert(HistoryCourse);
+        Assessment EnglishAssessment = new Assessment(1,1,"Performance Assessment","English Quiz","11/15/2022","11,20,2022");
+        repo.insert(EnglishAssessment);
+        Assessment HistoryAssessment = new Assessment(2,2,"Performance Assessment","History Quiz","11/20/2022","11,25,2022");
+        repo.insert(HistoryAssessment);
 
 
 

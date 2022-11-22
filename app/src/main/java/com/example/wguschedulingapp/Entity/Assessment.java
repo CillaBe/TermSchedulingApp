@@ -13,8 +13,7 @@ public class Assessment {
 
     private int AssessmentID;
 
-    private String PerformanceAssessment;
-    private String ObjectiveAssessment;
+    private String AssessmentType;
     private String AssessmentTitle;
     private String AssessmentEnd;
     private String AssessmentStart;
@@ -41,11 +40,12 @@ public class Assessment {
     public String toString() {
         return "Assessment{" +
                 "AssessmentID=" + AssessmentID +
-                ", PerformanceAssessment='" + PerformanceAssessment + '\'' +
-                ", ObjectiveAssessment='" + ObjectiveAssessment + '\'' +
+                ", PerformanceAssessment='" + AssessmentType + '\'' +
+
                 ", AssessmentTitle='" + AssessmentTitle + '\'' +
-                ", AssessmentEnd=" + AssessmentEnd +
+
                 ", AssessmentStart=" + AssessmentStart +
+                ", AssessmentEnd=" + AssessmentEnd +
                 ", CourseID=" + CourseID +
                 '}';
     }
@@ -58,10 +58,10 @@ public class Assessment {
         AssessmentEnd = assessmentEnd;
     }
 
-    public Assessment(int AssessmentID, int CourseID, String PerformanceAssessment, String AssessmentTitle, String AssessmentEnd, String AssessmentStart) {
+    public Assessment(int AssessmentID, int CourseID, String AssessmentType, String AssessmentTitle,String AssessmentStart, String AssessmentEnd ) {
         this.AssessmentID = AssessmentID;
         this.CourseID = CourseID;
-        this.PerformanceAssessment = PerformanceAssessment;
+        this.AssessmentType = AssessmentType;
         this.AssessmentTitle = AssessmentTitle;
         this.AssessmentEnd = AssessmentEnd;
         this.AssessmentStart = AssessmentStart;
@@ -82,20 +82,13 @@ public class Assessment {
         AssessmentTitle = assessmentTitle;
     }
 
-    public String getObjectiveAssessment() {
-        return ObjectiveAssessment;
+
+    public String getAssessmentType() {
+        return AssessmentType;
     }
 
-    public void setObjectiveAssessment(String objectiveAssessment) {
-        ObjectiveAssessment = objectiveAssessment;
-    }
-
-    public String getPerformanceAssessment() {
-        return PerformanceAssessment;
-    }
-
-    public void setPerformanceAssessment(String performanceAssessment) {
-        PerformanceAssessment = performanceAssessment;
+    public void setAssessmentType(String assessmentType) {
+        AssessmentType = assessmentType;
     }
 
     public int getAssessmentID() {
