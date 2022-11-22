@@ -200,20 +200,20 @@
         android:layout_width="137dp"
         android:layout_height="58dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="36dp"
         android:layout_weight="1"
         android:text="Add Assessment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView"
-        app:layout_constraintVertical_bias="0.892" />
+        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView" />
 
     <Button
         android:id="@+id/SaveCourseButton"
         android:layout_width="117dp"
         android:layout_height="61dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:onClick="saveCourse"
-        android:layout_marginTop="27dp"
         android:text="Save Course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -223,12 +223,12 @@
         android:id="@+id/deleteCourseButton"
         android:layout_width="106dp"
         android:layout_height="59dp"
+        android:layout_marginTop="34dp"
         android:text="Delete Course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/SaveCourseButton"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toEndOf="@+id/addAssessmentButton"
-        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView"
-        app:layout_constraintVertical_bias="0.857" />
+        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

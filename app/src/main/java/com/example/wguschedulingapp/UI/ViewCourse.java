@@ -107,12 +107,12 @@ public class ViewCourse extends AppCompatActivity {
                     newID = (int)Math.random();
                 }
             }
-            course = new Course(newID, TermId,EditCourseTitle.getText().toString(),EditCourseStart.getText().toString(),EditCourseEnd.getText().toString(),EditCourseStatus.getText().toString(),EditInstructorName.getText().toString(),EditInstructorPhone.getText().toString(),EditInstructorEmail.getText().toString(),EditNotes.getText().toString());
+            course = new Course(newID, Integer.parseInt(EditTermID.getText().toString()),EditCourseTitle.getText().toString(),EditCourseStart.getText().toString(),EditCourseEnd.getText().toString(),EditCourseStatus.getText().toString(),EditInstructorName.getText().toString(),EditInstructorPhone.getText().toString(),EditInstructorEmail.getText().toString(),EditNotes.getText().toString());
             repo.insert(course);
             Intent newIntent = new Intent(ViewCourse.this,TermsList.class);
             startActivity(newIntent);
         } else {
-            course = new Course(CourseId,  TermId,EditCourseTitle.getText().toString(),EditCourseStart.getText().toString(),EditCourseEnd.getText().toString(),EditCourseStatus.getText().toString(),EditInstructorName.getText().toString(),EditInstructorPhone.getText().toString(),EditInstructorEmail.getText().toString(),EditNotes.getText().toString());
+            course = new Course(CourseId,  Integer.parseInt(EditTermID.getText().toString()),EditCourseTitle.getText().toString(),EditCourseStart.getText().toString(),EditCourseEnd.getText().toString(),EditCourseStatus.getText().toString(),EditInstructorName.getText().toString(),EditInstructorPhone.getText().toString(),EditInstructorEmail.getText().toString(),EditNotes.getText().toString());
             repo.update(course);
             Intent newIntent = new Intent(ViewCourse.this,TermsList.class);
             startActivity(newIntent);
