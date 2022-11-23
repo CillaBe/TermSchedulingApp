@@ -2,10 +2,14 @@ package com.example.wguschedulingapp.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import com.example.wguschedulingapp.Database.Repository;
+import com.example.wguschedulingapp.Entity.Assessment;
+import com.example.wguschedulingapp.Entity.Course;
 import com.example.wguschedulingapp.R;
 
 public class ViewAssessment extends AppCompatActivity {
@@ -39,7 +43,7 @@ public class ViewAssessment extends AppCompatActivity {
         editAssessmentName = findViewById(R.id.editAssessmentName);
         editAssessmentStart = findViewById(R.id.editAssessmentStart);
         editAssessmentEnd = findViewById(R.id.editAssessmentEnd);
-        editAssessmentID = findViewById(R.id.editAssessmentIdInAssessment);
+
         editAssessmentCourseID = findViewById(R.id.editCourseIdInAssessment);
 
         AssessmentName = getIntent().getStringExtra("AssessmentTitle");
@@ -55,8 +59,30 @@ public class ViewAssessment extends AppCompatActivity {
         editAssessmentType.setText(AssessmentType);
         editAssessmentStart.setText(AssessmentStart);
         editAssessmentEnd.setText(AssessmentEnd);
-        editAssessmentID.setText(String.valueOf(AssessmentID));
         editAssessmentCourseID.setText(String.valueOf(CourseID));
+    }
+    public void saveAssessment(View view){
+        Assessment assessment;
+
+        if (AssessmentID == -1) {
+            int id = (int)Math.random();
+
+            for(Assessment a : repo.getAllAssessments()){
+                if(a.getAssessmentID()== id){
+                    id= (int)Math.random();
+                }
+            }
+            assessment= new Assessment(id,Integer.parseInt(editAssessmentCourseID.getText().toString()),editAssessmentType.getText().toString(),editAssessmentName.getText().toString(),editAssessmentStart.getText().toString(),editAssessmentEnd.getText().toString());
+            repo.insert(assessment);
+            Intent newIntent = new Intent(ViewAssessment.this,TermsList.class);
+            startActivity(newIntent);
+        }
+         else {
+            assessment = new Assessment(AssessmentID,Integer.parseInt(editAssessmentCourseID.getText().toString()),editAssessmentType.getText().toString(),editAssessmentName.getText().toString(),editAssessmentStart.getText().toString(),editAssessmentEnd.getText().toString());
+            repo.update(assessment);
+            Intent newIntent = new Intent(ViewAssessment.this,TermsList.class);
+            startActivity(newIntent);
+        }
     }
 
 

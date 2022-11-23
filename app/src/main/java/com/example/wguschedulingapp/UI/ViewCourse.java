@@ -118,4 +118,8 @@ public class ViewCourse extends AppCompatActivity {
             startActivity(newIntent);
         }
     }
+    public void addAssessment(View view){
+        Intent intent = new Intent(ViewCourse.this,ViewAssessment.class);
+        startActivity(intent);
+    }
 }
