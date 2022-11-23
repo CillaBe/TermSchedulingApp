@@ -19,7 +19,7 @@
             android:exported="false" />
         <activity
             android:name=".UI.ViewAssessment"
-            android:label = "Course Detail"
+            android:label = "Assessment Detail"
             android:exported="false" />
         <activity
             android:name=".UI.CourseList"
