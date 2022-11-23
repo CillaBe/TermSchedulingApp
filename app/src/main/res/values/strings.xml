@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WGU Scheduling App</string>
+    <string name="app_name">SCU Term Scheduler</string>
     <string name="Terms">View Term Information</string>
     <string name="Welcome">Welcome!</string>
     <string name="title_activity_terms_list">TermsList</string>
