@@ -13,6 +13,10 @@ import com.example.wguschedulingapp.Entity.Assessment;
 import com.example.wguschedulingapp.Entity.Course;
 import com.example.wguschedulingapp.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class ViewAssessment extends AppCompatActivity {
 
     EditText editAssessmentName;
@@ -31,6 +35,8 @@ public class ViewAssessment extends AppCompatActivity {
 
     Repository repo;
 
+    final Calendar myCalenderBegin = Calendar.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,9 @@ public class ViewAssessment extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_view_assessment);
         repo = new Repository(getApplication());
+
+        String DateFormatter = "MM/dd/yy";
+        SimpleDateFormat SimpleDateFormat = new SimpleDateFormat(DateFormatter, Locale.US);
 
         editAssessmentType = findViewById(R.id.editAssessmentType);
         editAssessmentName = findViewById(R.id.editAssessmentName);

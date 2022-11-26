@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.wguschedulingapp.Database.Repository;
@@ -17,8 +19,13 @@ import com.example.wguschedulingapp.Entity.Course;
 import com.example.wguschedulingapp.Entity.Term;
 import com.example.wguschedulingapp.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ViewCourse extends AppCompatActivity {
     EditText EditCourseID;
@@ -45,6 +52,19 @@ public class ViewCourse extends AppCompatActivity {
 
     Repository repo;
 
+    String DateFormatter = "MM/dd/yy";
+    SimpleDateFormat SimpleFormat = new SimpleDateFormat(DateFormatter, Locale.US);
+
+
+
+    final Calendar myCalenderBegin = Calendar.getInstance();
+    final Calendar myCalenderEnd = Calendar.getInstance();
+
+    DatePickerDialog.OnDateSetListener startDate;
+    DatePickerDialog.OnDateSetListener endDate;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +72,13 @@ public class ViewCourse extends AppCompatActivity {
         setContentView(R.layout.activity_view_course);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final AssessmentAdapter adapter = new AssessmentAdapter(this);
+
         repo = new Repository(getApplication());
+
+
+
         EditCourseID = findViewById(R.id.editCourseID);
         EditTermID = findViewById(R.id.editTermID);
         EditCourseTitle = findViewById(R.id.editCourseName);
@@ -86,6 +111,41 @@ public class ViewCourse extends AppCompatActivity {
         EditInstructorPhone.setText(InstructorPhone);
         EditInstructorEmail.setText(InstructorEmail);
         EditNotes.setText(Notes);
+
+        EditCourseStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Date date;
+                String dateinformation = EditCourseStart.getText().toString();
+                if (dateinformation.equals("")) dateinformation = "11/11/2011";
+                try {
+                    myCalenderBegin.setTime(SimpleFormat.parse(dateinformation));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+
+                }
+
+                new DatePickerDialog(ViewCourse.this, startDate, )
+
+
+            }
+        });
+
+        startDate = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                myCalenderBegin.set(Calendar.YEAR, year);
+                myCalenderBegin.set(Calendar.MONTH, month);
+                myCalenderBegin.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabelStart()
+
+            }
+
+    };
+
+
+
 
         RecyclerView recyclerView = findViewById(R.id.AssessmentRecyclerView);
         recyclerView.setAdapter(adapter);
