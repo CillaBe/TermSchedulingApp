@@ -14,7 +14,9 @@
         <entry key="app/src/main/res/layout/assessment_list_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/course_list_item.xml" value="0.2625" />
         <entry key="app/src/main/res/layout/term_list_item.xml" value="0.375" />
-        <entry key="app/src/main/res/menu/menu_termlist.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/courselist.xml" value="0.375" />
+        <entry key="app/src/main/res/menu/menu_assessmentlist.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu_termlist.xml" value="6.5" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.30548523206751055" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.30548523206751055" />
       </map>

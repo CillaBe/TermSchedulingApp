@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
@@ -83,6 +84,10 @@ public class ViewAssessment extends AppCompatActivity {
             Intent newIntent = new Intent(ViewAssessment.this,TermsList.class);
             startActivity(newIntent);
         }
+    }
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.menu_assessmentlist,menu);
+        return true;
     }
 
 

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
@@ -121,5 +122,9 @@ public class ViewCourse extends AppCompatActivity {
     public void addAssessment(View view){
         Intent intent = new Intent(ViewCourse.this,ViewAssessment.class);
         startActivity(intent);
+    }
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.courselist,menu);
+        return true;
     }
 }
