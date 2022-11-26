@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -64,8 +65,8 @@ public class ViewCourse extends AppCompatActivity {
         EditNotes = findViewById(R.id.editOptionalNotes);
         EditInstructorEmail = findViewById(R.id.editInstructorEmail);
 
-        CourseId = getIntent().getIntExtra("CourseId",-1);
-        TermId = getIntent().getIntExtra("TermID",-1);
+        CourseId = getIntent().getIntExtra("CourseId", -1);
+        TermId = getIntent().getIntExtra("TermID", -1);
         CourseTitle = getIntent().getStringExtra("CourseTitle");
         CourseStart = getIntent().getStringExtra("CourseStart");
         CourseEnd = getIntent().getStringExtra("CourseEnd");
@@ -90,7 +91,7 @@ public class ViewCourse extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<Assessment> AssessmentsByTerm = new ArrayList<>();
-        for (Assessment assessment : repo.getAllAssessments()){
+        for (Assessment assessment : repo.getAllAssessments()) {
             if (assessment.getCourseID() == CourseId) {
                 AssessmentsByTerm.add(assessment);
             }
@@ -98,33 +99,61 @@ public class ViewCourse extends AppCompatActivity {
 
         }
     }
-    public void saveCourse(View view){
+
+    public void saveCourse(View view) {
         Course course;
         if (CourseId == -1) {
-            int newID = (int)Math.random();
+            int newID = (int) Math.random();
 
-            for(Course c : repo.getAllCourses()){
-                if(c.getCourseID()== newID){
-                    newID = (int)Math.random();
+            for (Course c : repo.getAllCourses()) {
+                if (c.getCourseID() == newID) {
+                    newID = (int) Math.random();
                 }
             }
-            course = new Course(newID, Integer.parseInt(EditTermID.getText().toString()),EditCourseTitle.getText().toString(),EditCourseStart.getText().toString(),EditCourseEnd.getText().toString(),EditCourseStatus.getText().toString(),EditInstructorName.getText().toString(),EditInstructorPhone.getText().toString(),EditInstructorEmail.getText().toString(),EditNotes.getText().toString());
+            course = new Course(newID, Integer.parseInt(EditTermID.getText().toString()), EditCourseTitle.getText().toString(), EditCourseStart.getText().toString(), EditCourseEnd.getText().toString(), EditCourseStatus.getText().toString(), EditInstructorName.getText().toString(), EditInstructorPhone.getText().toString(), EditInstructorEmail.getText().toString(), EditNotes.getText().toString());
             repo.insert(course);
-            Intent newIntent = new Intent(ViewCourse.this,TermsList.class);
+            Intent newIntent = new Intent(ViewCourse.this, TermsList.class);
             startActivity(newIntent);
         } else {
-            course = new Course(CourseId,  Integer.parseInt(EditTermID.getText().toString()),EditCourseTitle.getText().toString(),EditCourseStart.getText().toString(),EditCourseEnd.getText().toString(),EditCourseStatus.getText().toString(),EditInstructorName.getText().toString(),EditInstructorPhone.getText().toString(),EditInstructorEmail.getText().toString(),EditNotes.getText().toString());
+            course = new Course(CourseId, Integer.parseInt(EditTermID.getText().toString()), EditCourseTitle.getText().toString(), EditCourseStart.getText().toString(), EditCourseEnd.getText().toString(), EditCourseStatus.getText().toString(), EditInstructorName.getText().toString(), EditInstructorPhone.getText().toString(), EditInstructorEmail.getText().toString(), EditNotes.getText().toString());
             repo.update(course);
-            Intent newIntent = new Intent(ViewCourse.this,TermsList.class);
+            Intent newIntent = new Intent(ViewCourse.this, TermsList.class);
             startActivity(newIntent);
         }
     }
-    public void addAssessment(View view){
-        Intent intent = new Intent(ViewCourse.this,ViewAssessment.class);
+
+    public void addAssessment(View view) {
+        Intent intent = new Intent(ViewCourse.this, ViewAssessment.class);
         startActivity(intent);
     }
-    public boolean onCreateOptionsMenu (Menu menu){
-        getMenuInflater().inflate(R.menu.courselist,menu);
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.courselist, menu);
         return true;
     }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.ShareNotes:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, EditNotes.getText().toString());
+                sendIntent.putExtra(Intent.EXTRA_TITLE, EditCourseTitle.getText().toString());
+                sendIntent.setType("text/plain");
+                Intent shareNotes = Intent.createChooser(sendIntent, null);
+                startActivity(shareNotes);
+                return true;
+            case R.id.NotifStartOfCourse:
+                return true;
+            case R.id.NotifEndOfCourse:
+                return true;
+
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
+

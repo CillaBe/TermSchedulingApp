@@ -20,6 +20,7 @@
         <activity
             android:name=".UI.ViewAssessment"
             android:label = "Assessment Detail"
+            android:parentActivityName=".UI.TermsList"
             android:exported="false" />
         <activity
             android:name=".UI.CourseList"
