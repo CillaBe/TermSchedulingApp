@@ -56,14 +56,11 @@ public class ViewCourse extends AppCompatActivity {
     SimpleDateFormat SimpleFormat = new SimpleDateFormat(DateFormatter, Locale.US);
 
 
-
     final Calendar myCalenderBegin = Calendar.getInstance();
     final Calendar myCalenderEnd = Calendar.getInstance();
 
     DatePickerDialog.OnDateSetListener startDate;
     DatePickerDialog.OnDateSetListener endDate;
-
-
 
 
     @Override
@@ -76,7 +73,6 @@ public class ViewCourse extends AppCompatActivity {
         final AssessmentAdapter adapter = new AssessmentAdapter(this);
 
         repo = new Repository(getApplication());
-
 
 
         EditCourseID = findViewById(R.id.editCourseID);
@@ -112,6 +108,23 @@ public class ViewCourse extends AppCompatActivity {
         EditInstructorEmail.setText(InstructorEmail);
         EditNotes.setText(Notes);
 
+        RecyclerView recyclerView = findViewById(R.id.AssessmentRecyclerView);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new
+
+                LinearLayoutManager(this));
+        List<Assessment> AssessmentsByTerm = new ArrayList<>();
+        for(
+                Assessment assessment :repo.getAllAssessments())
+
+        {
+            if (assessment.getCourseID() == CourseId) {
+                AssessmentsByTerm.add(assessment);
+            }
+            adapter.setAssessments(AssessmentsByTerm);
+
+        }
+
         EditCourseStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,7 +138,7 @@ public class ViewCourse extends AppCompatActivity {
 
                 }
 
-                new DatePickerDialog(ViewCourse.this, startDate, )
+                new DatePickerDialog(ViewCourse.this, startDate, myCalenderBegin.get(Calendar.YEAR), myCalenderBegin.get(Calendar.MONTH), myCalenderBegin.get(Calendar.DAY_OF_MONTH)).show();
 
 
             }
@@ -138,27 +151,57 @@ public class ViewCourse extends AppCompatActivity {
                 myCalenderBegin.set(Calendar.YEAR, year);
                 myCalenderBegin.set(Calendar.MONTH, month);
                 myCalenderBegin.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateLabelStart()
+                updateLabelStart();
 
             }
 
-    };
+        };
+        EditCourseEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Date date;
+                String dateinformation = EditCourseEnd.getText().toString();
+                if (dateinformation.equals("")) dateinformation = "11/11/2011";
+                try {
+                    myCalenderEnd.setTime(SimpleFormat.parse(dateinformation));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+
+                }
+
+                new DatePickerDialog(ViewCourse.this, endDate, myCalenderEnd.get(Calendar.YEAR), myCalenderEnd.get(Calendar.MONTH), myCalenderEnd.get(Calendar.DAY_OF_MONTH)).show();
 
 
-
-
-        RecyclerView recyclerView = findViewById(R.id.AssessmentRecyclerView);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<Assessment> AssessmentsByTerm = new ArrayList<>();
-        for (Assessment assessment : repo.getAllAssessments()) {
-            if (assessment.getCourseID() == CourseId) {
-                AssessmentsByTerm.add(assessment);
             }
-            adapter.setAssessments(AssessmentsByTerm);
+        });
 
-        }
+
+        endDate = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                myCalenderEnd.set(Calendar.YEAR, year);
+                myCalenderEnd.set(Calendar.MONTH, month);
+                myCalenderEnd.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabelEnd();
+
+            }
+
+        };
     }
+
+    private void updateLabelStart() {
+        EditCourseStart.setText(SimpleFormat.format(myCalenderBegin.getTime()));
+    }
+    private void updateLabelEnd() {
+        EditCourseEnd.setText(SimpleFormat.format(myCalenderEnd.getTime()));
+    }
+
+
+
+
+
+
 
     public void saveCourse(View view) {
         Course course;
@@ -215,5 +258,6 @@ public class ViewCourse extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
 
