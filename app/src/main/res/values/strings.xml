@@ -22,4 +22,6 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_view_assessment">ViewAssessment</string>
     <string name="title_activity_add_assessment">AddAssessment</string>
+    <string name="channel_name">mychannel</string>
+    <string name="channel_description">MyChannelDescription</string>
 </resources>

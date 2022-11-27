@@ -13,6 +13,7 @@ import com.example.wguschedulingapp.Entity.Term;
 import com.example.wguschedulingapp.R;
 
 public class MainActivity extends AppCompatActivity {
+    public static int numAlert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public void enterTermsList(View view) {
         Intent intent = new Intent(MainActivity.this,TermsList.class);
         startActivity(intent);
+
 
         Repository repo = new Repository(getApplication());
         /**Term FallTerm = new Term(1,"Fall Term","09/30/2022","12/15/2022");

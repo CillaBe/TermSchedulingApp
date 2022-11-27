@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -250,6 +253,20 @@ public class ViewCourse extends AppCompatActivity {
                 startActivity(shareNotes);
                 return true;
             case R.id.NotifStartOfCourse:
+                String dateFromApp = EditCourseStart.getText().toString();
+                Date StartCourseDO = null;
+                try{
+                    StartCourseDO = SimpleFormat.parse(dateFromApp);
+                }
+                catch(ParseException e){
+                    e.printStackTrace();
+                }
+                Long trigger = StartCourseDO.getTime();
+                Intent intent = new Intent(ViewCourse.this,MyReceiver.class);
+                intent.putExtra("key",EditCourseTitle.getText() + " Course Starts Today!");
+                AlarmManager alarmManager =(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                PendingIntent sender = PendingIntent.getBroadcast(ViewCourse.this,MainActivity.numAlert++,intent,0);
+                alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
                 return true;
             case R.id.NotifEndOfCourse:
                 return true;
