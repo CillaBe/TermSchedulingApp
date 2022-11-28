@@ -2,10 +2,14 @@ package com.example.wguschedulingapp.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -182,6 +186,48 @@ public class ViewAssessment extends AppCompatActivity {
     public boolean onCreateOptionsMenu (Menu menu){
         getMenuInflater().inflate(R.menu.menu_assessmentlist,menu);
         return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.NotifStartOfAssessment:
+                String dateFromApp = editAssessmentStart.getText().toString();
+                Date StartAssessmentDO = null;
+                try{
+                    StartAssessmentDO = SimpleFormat.parse(dateFromApp);
+                }
+                catch(ParseException e){
+                    e.printStackTrace();
+                }
+                Long trigger = StartAssessmentDO.getTime();
+                Intent intent = new Intent(ViewAssessment.this,MyReceiver.class);
+                intent.putExtra("key",editAssessmentName.getText() + " Assessment Starts Today!");
+                AlarmManager alarmManager =(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                PendingIntent sender = PendingIntent.getBroadcast(ViewAssessment.this,MainActivity.numAlert++,intent,0);
+                alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
+                return true;
+            case R.id.NotifEndOfAssessment:
+                String EnddateFromApp = editAssessmentEnd.getText().toString();
+                Date EndAssessmentDO = null;
+                try{
+                    EndAssessmentDO = SimpleFormat.parse(EnddateFromApp);
+                }
+                catch(ParseException e){
+                    e.printStackTrace();
+                }
+                Long triggerEnd = EndAssessmentDO.getTime();
+                Intent EndAssessmentintent = new Intent(ViewAssessment.this,MyReceiver.class);
+                EndAssessmentintent.putExtra("key",editAssessmentName.getText() + " Assessment Ends Today!");
+                AlarmManager EndAlarmManager =(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                PendingIntent EndSender = PendingIntent.getBroadcast(ViewAssessment.this,MainActivity.numAlert++,EndAssessmentintent,0);
+                EndAlarmManager.set(AlarmManager.RTC_WAKEUP,triggerEnd,EndSender);
+                return true;
+
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
