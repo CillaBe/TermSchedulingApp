@@ -269,6 +269,20 @@ public class ViewCourse extends AppCompatActivity {
                 alarmManager.set(AlarmManager.RTC_WAKEUP,trigger,sender);
                 return true;
             case R.id.NotifEndOfCourse:
+                String EnddateFromApp = EditCourseEnd.getText().toString();
+                Date EndCourseDO = null;
+                try{
+                    EndCourseDO = SimpleFormat.parse(EnddateFromApp);
+                }
+                catch(ParseException e){
+                    e.printStackTrace();
+                }
+                Long triggerEnd = EndCourseDO.getTime();
+                Intent EndCourseintent = new Intent(ViewCourse.this,MyReceiver.class);
+                EndCourseintent.putExtra("key",EditCourseTitle.getText() + " Course Ends Today!");
+                AlarmManager EndAlarmManager =(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                PendingIntent EndSender = PendingIntent.getBroadcast(ViewCourse.this,MainActivity.numAlert++,EndCourseintent,0);
+                EndAlarmManager.set(AlarmManager.RTC_WAKEUP,triggerEnd,EndSender);
                 return true;
 
 

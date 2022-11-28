@@ -23,14 +23,17 @@ public class MyReceiver extends BroadcastReceiver {
         // an Intent broadcast.
         Toast.makeText(context,intent.getStringExtra("key"),Toast.LENGTH_LONG).show();
         createNotificationChannel(context,channel_id);
-        Notification notif = new NotificationCompat.Builder(context,channel_id)
+        Notification n = new NotificationCompat.Builder(context,channel_id)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentText(intent.getStringExtra("key"))
                 .setContentTitle("Notification").build();
         NotificationManager manager = (NotificationManager)  context.getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(notificationID++,notif);
+        manager.notify(notificationID++,n);
 
     }
+
+
+
     private void createNotificationChannel(Context context,String CHANNEL_ID){
         CharSequence name = context.getResources().getString(R.string.channel_name);
         String description = context.getString(R.string.channel_description);
