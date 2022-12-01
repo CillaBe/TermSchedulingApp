@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.wguschedulingapp.Database.Repository;
 import com.example.wguschedulingapp.Entity.Course;
@@ -102,4 +103,28 @@ public class ViewTerm extends AppCompatActivity {
         Intent intent = new Intent(ViewTerm.this,ViewCourse.class);
         startActivity(intent);
     }
+
+    public void DeleteTerm(View view) {
+        int numberOfCourses = 0;
+        for (Course course : repository.getAllCourses()){
+            if (course.getTermID() == termID ){
+                ++numberOfCourses;}
+
+
+        }
+        if(numberOfCourses == 0) {
+            for (Term term : repository.getAllTerms()) {
+                if (term.getTermID() == termID) {
+                    repository.delete(term);
+                }
+                Toast.makeText(ViewTerm.this, " Confirmation: " + name + " has been successfully deleted! ", Toast.LENGTH_LONG).show();
+            }
+        }
+            else{
+            Toast.makeText(ViewTerm.this, " Error " + name + " has associated courses and cannot be deleted! ", Toast.LENGTH_LONG).show();
+
+            }
+        }
+
     }
+

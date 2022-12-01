@@ -146,6 +146,7 @@
         android:layout_height="59dp"
         android:layout_marginTop="24dp"
         android:text="Delete Term"
+        android:onClick="DeleteTerm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toEndOf="@+id/addCourseButton"
