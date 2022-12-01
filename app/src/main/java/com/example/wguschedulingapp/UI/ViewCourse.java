@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.wguschedulingapp.Database.Repository;
 import com.example.wguschedulingapp.Entity.Assessment;
@@ -288,6 +289,17 @@ public class ViewCourse extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void DeleteCourse(View view) {
+        for (Course course : repo.getAllCourses()) {
+            if (course.getCourseID() == CourseId) {
+                repo.delete(course);
+            }
+            Toast.makeText(ViewCourse.this, " Confirmation: " + CourseTitle + " has been successfully deleted! ", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(ViewCourse.this,TermsList.class);
+            startActivity(intent);
+        }
     }
 
 }

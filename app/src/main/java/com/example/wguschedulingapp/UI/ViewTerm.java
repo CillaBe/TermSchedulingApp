@@ -118,6 +118,8 @@ public class ViewTerm extends AppCompatActivity {
                     repository.delete(term);
                 }
                 Toast.makeText(ViewTerm.this, " Confirmation: " + name + " has been successfully deleted! ", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(ViewTerm.this,TermsList.class);
+                startActivity(intent);
             }
         }
             else{

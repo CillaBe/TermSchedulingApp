@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.wguschedulingapp.Database.Repository;
 import com.example.wguschedulingapp.Entity.Assessment;
@@ -231,5 +232,16 @@ public class ViewAssessment extends AppCompatActivity {
     }
 
 
+    public void DeleteAssessment(View view) {
+        for (Assessment assessment : repo.getAllAssessments()) {
+            if (assessment.getAssessmentID() == AssessmentID) {
+                repo.delete(assessment);
+            }
+            Toast.makeText(ViewAssessment.this, " Confirmation: " + AssessmentName + " has been successfully deleted! ", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(ViewAssessment.this,TermsList.class);
+            startActivity(intent);
+
+        }
+    }
 
 }

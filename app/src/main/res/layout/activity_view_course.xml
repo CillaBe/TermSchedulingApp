@@ -226,6 +226,7 @@
         android:layout_height="59dp"
         android:layout_marginTop="34dp"
         android:text="Delete Course"
+        android:onClick="DeleteCourse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/SaveCourseButton"
         app:layout_constraintHorizontal_bias="0.489"
