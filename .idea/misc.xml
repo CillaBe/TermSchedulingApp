@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout-land/activity_terms_list.xml" value="0.5739583333333333" />
+        <entry key="app/src/main/res/layout-land/activity_view_assessment.xml" value="0.5739583333333333" />
+        <entry key="app/src/main/res/layout-land/activity_view_course.xml" value="0.5739583333333333" />
+        <entry key="app/src/main/res/layout-land/activity_view_term.xml" value="0.5739583333333333" />
+        <entry key="app/src/main/res/layout-land/assessment_list_item.xml" value="0.5739583333333333" />
+        <entry key="app/src/main/res/layout-land/course_list_item.xml" value="0.5739583333333333" />
+        <entry key="app/src/main/res/layout-land/term_list_item.xml" value="0.5739583333333333" />
+        <entry key="app/src/main/res/layout-sw600dp/activity_terms_list.xml" value="0.196875" />
+        <entry key="app/src/main/res/layout/activity_add_assessment.xml" value="0.1574074074074074" />
         <entry key="app/src/main/res/layout/activity_add_course.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_add_term.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_course_list.xml" value="0.1648148148148148" />
