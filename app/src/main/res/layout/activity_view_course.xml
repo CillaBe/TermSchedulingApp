@@ -9,8 +9,8 @@
 
     <ScrollView
         android:id="@+id/scrollViewCourse"
-        android:layout_width="379dp"
-        android:layout_height="327dp"
+        android:layout_width="386dp"
+        android:layout_height="356dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -183,54 +183,62 @@
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollViewCourse"
-        app:layout_constraintVertical_bias="0.393" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/AssessmentRecyclerView"
-        android:layout_width="383dp"
-        android:layout_height="114dp"
+        android:layout_width="381dp"
+        android:layout_height="63dp"
         android:layout_marginTop="52dp"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollViewCourse" />
 
     <Button
         android:id="@+id/addAssessmentButton"
-        android:layout_width="137dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="36dp"
-        android:layout_weight="1"
+        android:layout_width="145dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+
+        android:onClick="addAssessment"
         android:text="Add Assessment"
-        android:onClick ="addAssessment"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deleteCourseButton"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView"
+        app:layout_constraintVertical_bias="0.23" />
 
     <Button
         android:id="@+id/SaveCourseButton"
-        android:layout_width="117dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="104dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:onClick="saveCourse"
         android:text="Save Course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/deleteCourseButton"
+        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView"
+        app:layout_constraintVertical_bias="0.23" />
 
     <Button
         android:id="@+id/deleteCourseButton"
-        android:layout_width="106dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="34dp"
-        android:text="Delete Course"
+        android:layout_width="100dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
         android:onClick="DeleteCourse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/SaveCourseButton"
-        app:layout_constraintHorizontal_bias="0.489"
+        android:text="Delete Course"
         app:layout_constraintStart_toEndOf="@+id/addAssessmentButton"
-        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView" />
+        app:layout_constraintEnd_toStartOf="@id/SaveCourseButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AssessmentRecyclerView"
+        app:layout_constraintVertical_bias="0.23"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
